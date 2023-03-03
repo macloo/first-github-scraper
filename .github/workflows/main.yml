@@ -18,15 +18,6 @@ jobs:
       run: jupyter execute scrape.ipynb
 
     - name: Add and commit	
-      run: |
-        git add .	
-        git config user.name "Automated"	
-        git config user.email "actions@users.noreply.github.com"	
-        git commit -m "Latest data" 	
-    - name: Push	
-      run: git push
-
-    - name: Add and commit
       id: add_commit
       uses: EndBug/add-and-commit@v8
       with:
@@ -40,7 +31,7 @@ jobs:
       env:
           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
       with:
-          text: A successful scrape!
+          text: A successful scrape from Mindy!
     
     - name: Slack Notification on FAILURE
       if: failure()
@@ -48,7 +39,7 @@ jobs:
       env:
           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
       with:
-          text: Something went wrong.
+          text: Something went wrong for Mindy ...
           attachments: |
             [
                 {
