@@ -25,3 +25,11 @@ jobs:
         git commit -m "Latest data" 	
     - name: Push	
       run: git push
+
+    - name: Add and commit
+      id: add_commit
+      uses: EndBug/add-and-commit@v8
+      with:
+        committer_name: Automated
+        committer_email: actions@users.noreply.github.com
+        message: "Latest data"
